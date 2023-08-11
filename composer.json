@@ -1,0 +1,28 @@
+{
+    "name": "freshleafmedia/signed-actions",
+    "description": "Support for generating signed URLs from actions in Laravel",
+    "keywords": [
+        "freshleafmedia",
+        "signed",
+        "routes",
+        "actions",
+        "temporary"
+    ],
+    "homepage": "https://github.com/freshleafmedia/signed-actions",
+    "license": "MIT",
+    "require": {
+        "illuminate/contracts": "^10"
+    },
+    "autoload": {
+        "psr-4": {
+            "FreshleafMedia\\SignedActions\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "FreshleafMedia\\SignedActions\\SignedActionsServiceProvider"
+            ]
+        }
+    }
+}
