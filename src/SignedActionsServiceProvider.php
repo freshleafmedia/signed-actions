@@ -12,7 +12,7 @@ class SignedActionsServiceProvider extends \Illuminate\Support\ServiceProvider
 {
     public function boot(): void
     {
-        URL::macro('signedAction', function ($name, $parameters = [], $expiration = null, $absolute = true) {
+        URL::macro('signedAction', function (string $name, array $parameters = [], DateInterval|DateTimeInterface|int $expiration = null, bool $absolute = true): string {
             /** @var UrlGenerator $this */
 
             $this->ensureSignedRouteParametersAreNotReserved(
@@ -32,7 +32,7 @@ class SignedActionsServiceProvider extends \Illuminate\Support\ServiceProvider
                 ], $absolute);
         });
 
-        URL::macro('temporarySignedAction', function ($name, $expiration, $parameters = [], $absolute = true) {
+        URL::macro('temporarySignedAction', function (string $name, DateInterval|DateTimeInterface|int $expiration, array $parameters = [], bool $absolute = true): string {
             /** @var UrlGenerator $this */
 
             return $this->signedAction($name, $parameters, $expiration, $absolute);
