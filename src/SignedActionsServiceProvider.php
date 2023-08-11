@@ -31,5 +31,11 @@ class SignedActionsServiceProvider extends \Illuminate\Support\ServiceProvider
                     'signature' => hash_hmac('sha256', $this->action($name, $parameters, $absolute), $key),
                 ], $absolute);
         });
+
+        URL::macro('temporarySignedAction', function ($name, $expiration, $parameters = [], $absolute = true) {
+            /** @var UrlGenerator $this */
+
+            return $this->signedAction($name, $parameters, $expiration, $absolute);
+        });
     }
 }
