@@ -28,7 +28,7 @@ class SignedActionsServiceProvider extends \Illuminate\Support\ServiceProvider
             $key = call_user_func($this->keyResolver);
 
             return $this->action($name, $parameters + [
-                    'signature' => hash_hmac('sha256', $this->action($name, $parameters, $absolute), $key),
+                    'signature' => hash_hmac('sha256', $this->action($name, $parameters, $absolute), is_array($key) ? $key[0] : $key),
                 ], $absolute);
         });
 
