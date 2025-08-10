@@ -12,7 +12,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.0",
-        "illuminate/contracts": "^10"
+        "illuminate/contracts": "^10|^11"
     },
     "autoload": {
         "psr-4": {
