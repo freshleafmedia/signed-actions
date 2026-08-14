@@ -12,7 +12,7 @@ class SignedActionsServiceProvider extends \Illuminate\Support\ServiceProvider
 {
     public function boot(): void
     {
-        URL::macro('signedAction', function (string $name, array $parameters = [], \DateInterval|\DateTimeInterface|int $expiration = null, bool $absolute = true): string {
+        URL::macro('signedAction', function (string $name, array $parameters = [], \DateInterval|\DateTimeInterface|int|null $expiration = null, bool $absolute = true): string {
             /** @var UrlGenerator $this */
 
             $this->ensureSignedRouteParametersAreNotReserved(
